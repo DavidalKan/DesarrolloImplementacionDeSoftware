@@ -1,0 +1,169 @@
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
+
+:root {
+    --cyber-bg: #050816;
+    --cyber-panel: rgba(10, 18, 39, 0.88);
+    --cyber-cyan: #00f5d4;
+    --cyber-pink: #ff3cac;
+    --cyber-text: #d7f9ff;
+    --cyber-muted: #7894ab;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background:
+        linear-gradient(rgba(0, 245, 212, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 245, 212, 0.04) 1px, transparent 1px),
+        var(--cyber-bg);
+    background-size: 32px 32px;
+}
+
+.cyber-app {
+    min-height: 100svh;
+    display: grid;
+    place-items: center;
+    padding: 32px 16px;
+    color: var(--cyber-text);
+    font-family: "Share Tech Mono", ui-monospace, monospace;
+}
+
+.cyber-panel {
+    width: min(680px, 100%);
+    padding: clamp(24px, 5vw, 48px);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(0, 245, 212, 0.45);
+    background: var(--cyber-panel);
+    box-shadow: 0 0 32px rgba(0, 245, 212, 0.12), inset 0 0 40px rgba(0, 245, 212, 0.04);
+    clip-path: polygon(0 18px, 18px 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%);
+}
+
+.cyber-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(transparent 50%, rgba(0, 245, 212, 0.025) 50%);
+    background-size: 100% 4px;
+}
+
+.cyber-eyebrow,
+.cyber-label {
+    color: var(--cyber-cyan);
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+}
+
+.cyber-eyebrow {
+    margin: 0 0 18px;
+}
+
+.cyber-panel h1 {
+    margin: 0;
+    color: var(--cyber-text);
+    font-size: clamp(2.4rem, 8vw, 4.5rem);
+    line-height: 1;
+    text-shadow: 0 0 14px rgba(0, 245, 212, 0.45);
+}
+
+.cyber-panel h1 span {
+    color: var(--cyber-pink);
+}
+
+.cyber-subtitle {
+    margin: 14px 0 36px;
+    color: var(--cyber-muted);
+}
+
+.cyber-panel label {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--cyber-text);
+}
+
+.cyber-panel input {
+    width: 100%;
+    padding: 15px 16px;
+    border: 1px solid rgba(0, 245, 212, 0.5);
+    outline: none;
+    color: var(--cyber-text);
+    background: rgba(0, 0, 0, 0.35);
+    font: inherit;
+    transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.cyber-panel input::placeholder {
+    color: #506b7e;
+}
+
+.cyber-panel input:focus {
+    border-color: var(--cyber-cyan);
+    box-shadow: 0 0 16px rgba(0, 245, 212, 0.25);
+}
+
+.cyber-actions {
+    display: flex;
+    gap: 12px;
+    margin: 18px 0 30px;
+}
+
+.cyber-button {
+    flex: 1;
+    padding: 13px 18px;
+    border: 1px solid var(--cyber-cyan);
+    color: #031411;
+    background: var(--cyber-cyan);
+    cursor: pointer;
+    font: inherit;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+}
+
+.cyber-button-secondary {
+    border-color: var(--cyber-pink);
+    color: white;
+    background: transparent;
+}
+
+.cyber-button:not(:disabled):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 18px rgba(0, 245, 212, 0.45);
+}
+
+.cyber-button-secondary:not(:disabled):hover {
+    box-shadow: 0 0 18px rgba(255, 60, 172, 0.4);
+}
+
+.cyber-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.35;
+}
+
+.cyber-output {
+    display: grid;
+    gap: 18px;
+}
+
+.cyber-output > div {
+    min-height: 82px;
+    padding: 15px;
+    border-left: 2px solid var(--cyber-pink);
+    background: rgba(0, 0, 0, 0.28);
+}
+
+.cyber-value {
+    margin: 10px 0 0;
+    overflow-wrap: anywhere;
+    color: var(--cyber-text);
+}
+
+@media (max-width: 480px) {
+    .cyber-actions {
+        flex-direction: column;
+    }
+}
